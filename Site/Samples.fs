@@ -74,7 +74,7 @@ module Samples =
             Clear sMain
             Clear sSide
             s.Render(sMain)
-            let url = "http://github.com/intellifactory/websharper.webrtc/blob/master/Site/" + s.FileName
+            let url = "http://github.com/intellifactory/websharper.highcharts/blob/master/Site/" + s.FileName
             let side =
                 Div [
                     Div []
