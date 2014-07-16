@@ -7,6 +7,8 @@ open IntelliFactory.WebSharper.JQuery
 open IntelliFactory.WebSharper.Highstock
 
 [<JavaScript>]
+[<Require(typeof<Resources.Highstock>)>]
+[<Require(typeof<Resources.ExportingModule>)>]
 module StockControl =
 
     let Main (el : Dom.Element) =
@@ -27,7 +29,7 @@ module StockControl =
                                 Data = As data
                             )
                         |]
-                   )
+                    )
                 ) |> ignore
         ) |> ignore
     
@@ -36,5 +38,5 @@ module StockControl =
             .Id("Highstock")
             .FileName(__SOURCE_FILE__)
             .Keywords(["highstock";"charts"])
-//            .Render(Main)
+            .Render(Main)
             .Create()

@@ -17,7 +17,12 @@ module Helpers =
     type StyleCfg = { fontWeight: string }
     type DataC = { code: string }
 
+[<Require(typeof<Resources.MapModuleForStock>)>]
+type EuropeMap() =
+    inherit Resources.BaseResource "http://code.highcharts.com/mapdata/custom/europe.js"
+
 [<JavaScript>]
+[<Require(typeof<EuropeMap>)>]
 module MapControl =
     let Main (el: Dom.Element) =
         Highcharts.Create(JQuery.Of el,

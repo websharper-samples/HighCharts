@@ -103,21 +103,26 @@
     <None Include="packages.config" />
     <!--<Compile Include="Highmap.fs" />-->
     <Compile Include="Samples.fs" />
+    <Compile Include="Highchart.fs" />
     <Compile Include="Highstock.fs" />
     <!--<Compile Include="Highchart.fs" />-->
+    <Compile Include="Highmap.fs" />
     <Compile Include="Client.fs" />
     <None Include="index.html" />
     <None Include="Style.css" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="IntelliFactory.WebSharper.Highcharts">
-      <HintPath>..\..\..\..\..\Desktop\websharper.highcharts\build\net40\IntelliFactory.WebSharper.Highcharts.dll</HintPath>
+      <HintPath>..\packages\WebSharper.Highcharts.2.5.51.55\lib\net40\IntelliFactory.WebSharper.Highcharts.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="IntelliFactory.WebSharper.Highmaps">
-      <HintPath>..\..\..\..\..\Desktop\websharper.highcharts\build\net40\IntelliFactory.WebSharper.Highmaps.dll</HintPath>
+      <HintPath>..\packages\WebSharper.Highmaps.2.5.4.55\lib\net40\IntelliFactory.WebSharper.Highmaps.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="IntelliFactory.WebSharper.Highstock">
-      <HintPath>..\..\..\..\..\Desktop\websharper.highcharts\build\net40\IntelliFactory.WebSharper.Highstock.dll</HintPath>
+      <HintPath>..\packages\WebSharper.Highstock.2.5.4.55\lib\net40\IntelliFactory.WebSharper.Highstock.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
