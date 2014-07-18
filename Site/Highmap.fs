@@ -6,17 +6,6 @@ open IntelliFactory.WebSharper.Html5
 open IntelliFactory.WebSharper.JQuery
 open IntelliFactory.WebSharper.Highmaps
 
-[<JavaScript; AutoOpen>]
-module Helpers =
-    [<Inline "$global.Highcharts.maps[\'custom/europe\']">]
-    let map = X<obj []>
-
-    [<Inline "$0.toString()">]
-    let toS a = X<string>
-
-    type StyleCfg = { fontWeight: string }
-    type DataC = { code: string }
-
 [<Require(typeof<Resources.MapModuleForStock>)>]
 type EuropeMap() =
     inherit Resources.BaseResource "http://code.highcharts.com/mapdata/custom/europe.js"
@@ -24,6 +13,7 @@ type EuropeMap() =
 [<JavaScript>]
 [<Require(typeof<EuropeMap>)>]
 module MapControl =
+    let map = JavaScript.Global?Highcharts?maps?``custom/europe``
     let Main (el: Dom.Element) =
         Highcharts.Create(JQuery.Of el,
             HighmapsCfg(
@@ -43,16 +33,17 @@ module MapControl =
                         DataLabels = PlotOptionsSeriesDataLabelsCfg(
                             Enabled = true,
                             Color = "white",
-                            Formatter = As 
-                                (Func<obj,obj>(fun self -> 
-                                                let a = self?point?properties
-                                                if As a then
-                                                    if 5 > (As <| toS a?labelrank) then
-                                                        a?``iso-a2``
-                                                    else null
-                                                else null)),
+                            Formatter = 
+                                (Func<_,_>(fun self -> 
+                                    let a = self?point?properties
+                                    if As a then
+                                        if 5 > a?labelrank then
+                                            a?``iso-a2``
+                                        else null
+                                    else null)
+                                ).ToEcma(),
                             Format = null,
-                            Style = { fontWeight = "bold" }
+                            Style = New [ "fontWeight" => "bold" ]
                         ),
                         Tooltip = PlotOptionsSeriesTooltipCfg(
                             HeaderFormat = "",
@@ -64,24 +55,24 @@ module MapControl =
                     SeriesCfg(
                         Name = "UTC",
                         MapData = map,
-                        Data = ([|"IE"; "IS"; "GB"; "PT"|] |> Array.map (fun e -> As { code = e }))
+                        Data = ([|"IE"; "IS"; "GB"; "PT"|] |> Array.map (fun e -> New [ "code" => e ]))
                     )
                     SeriesCfg(
                         Name = "UTC +1",
                         MapData = map,
                         Data = ([|"NO"; "SE"; "DK"; "DE"; "NL"; "BE"; "LU"; "ES"; "FR"; "PL"; "CZ"; "AT"; "CH"; "LI"; "SK"; "HU"; "SI"; "IT"; "SM"; "HR"; "BA"; "YF"; "ME"; "AL"; "MK"|]
-                                |> Array.map (fun e -> As { code = e }))
+                                |> Array.map (fun e -> New [ "code" => e ]))
                     )
                     SeriesCfg(
                         Name = "UTC +2",
                         MapData = map,
                         Data = ([|"FI"; "EE"; "LV"; "LT"; "BY"; "UA"; "MD"; "RO"; "BG"; "GR"; "TR"; "CY"|]
-                                |> Array.map (fun e -> As { code = e }))
+                                |> Array.map (fun e -> New [ "code" => e ]))
                     )
                     SeriesCfg(
                         Name = "UTC +3",
                         MapData = map,
-                        Data = ([|"RU"|] |> Array.map (fun e -> As { code = e }))
+                        Data = ([|"RU"|] |> Array.map (fun e -> New [ "code" => e ]))
                     )
                 |]
            )
