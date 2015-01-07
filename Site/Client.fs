@@ -1,7 +1,7 @@
 namespace Site
 
 open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.Html
+open IntelliFactory.WebSharper.Html.Client
 
 [<JavaScript>]
 module Client =

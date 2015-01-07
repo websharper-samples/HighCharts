@@ -1,8 +1,8 @@
 ﻿namespace Site
 
 open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.Html
-open IntelliFactory.WebSharper.Html5
+open IntelliFactory.WebSharper.Html.Client
+open IntelliFactory.WebSharper.JavaScript
 open IntelliFactory.WebSharper.JQuery
 open IntelliFactory.WebSharper.Highmaps
 
@@ -13,7 +13,7 @@ type EuropeMap() =
 [<JavaScript>]
 [<Require(typeof<EuropeMap>)>]
 module MapControl =
-    let map = JavaScript.Global?Highcharts?maps?``custom/europe``
+    let map = JS.Global?Highcharts?maps?``custom/europe``
     let Main (el: Dom.Element) =
         Highcharts.Create(JQuery.Of el,
             HighmapsCfg(
@@ -30,7 +30,7 @@ module MapControl =
                     Map = PlotOptionsMapCfg(
                         AllAreas = false,
                         JoinBy = [|"iso-a2"; "code"|],
-                        DataLabels = PlotOptionsSeriesDataLabelsCfg(
+                        DataLabels = PlotOptionsMapDataLabelsCfg(
                             Enabled = true,
                             Color = "white",
                             Formatter = 
@@ -45,7 +45,7 @@ module MapControl =
                             Format = null,
                             Style = New [ "fontWeight" => "bold" ]
                         ),
-                        Tooltip = PlotOptionsSeriesTooltipCfg(
+                        Tooltip = PlotOptionsMapTooltipCfg(
                             HeaderFormat = "",
                             PointFormat = "{point.name}: <b>{series.name}</b>"
                         )

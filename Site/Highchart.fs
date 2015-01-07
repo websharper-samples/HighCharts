@@ -1,8 +1,8 @@
 ﻿namespace Site
 
 open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.Html5
-open IntelliFactory.WebSharper.Html
+open IntelliFactory.WebSharper.JavaScript
+open IntelliFactory.WebSharper.Html.Client
 open IntelliFactory.WebSharper.JQuery
 open IntelliFactory.WebSharper.Highcharts
 
