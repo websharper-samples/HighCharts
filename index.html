@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WebSharper.Highcharts</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="Content/HighCharts.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="Style.css">
+
+    <script type="text/javascript" src="Content/HighCharts.head.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">WebSharper.Highcharts</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/intellifactory/websharper.highcharts">Source</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://websharper.com">WebSharper</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="display:none">
+
+        <div id="Highmaps">
+            <p>
+                Highmaps demo based on <a href="http://www.highcharts.com/maps/demo/category-map" target="_blank">http://www.highcharts.com/maps/demo/category-map</a>
+            </p>
+        </div>
+        <div id="Highcharts">
+            <p>
+                Highcharts demo based on <a href="http://www.highcharts.com/demo" target="_blank">http://www.highcharts.com/demo</a>
+            </p>
+        </div>
+        <div id="Highstock">
+            <p>
+                Highstock demo based on <a href="http://www.highcharts.com/stock/demo" target="_blank">http://www.highcharts.com/stock/demo</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="sample-navs">
+                </div>
+                <div class="skip">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="sample-main">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">About</div>
+                    <div class="panel-body">
+                        <div id="sample-side">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Content/HighCharts.js"></script>
+    <!--<script src="http://code.highcharts.com/mapdata/custom/europe.js"></script>-->
+</body>
+</html>
