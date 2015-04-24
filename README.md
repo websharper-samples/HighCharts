@@ -2,5 +2,5 @@
 
 [Samples][samp] for [WebSharper][ws] bindings for Highcharts.
 
-[samp]: http://intellifactory.github.io/websharper.highcharts
+[samp]: http://intellifactory.github.io/websharper.highcharts.samples
 [ws]: http://websharper.com/

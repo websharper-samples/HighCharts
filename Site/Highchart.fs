@@ -1,10 +1,10 @@
 ﻿namespace Site
 
-open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.JavaScript
-open IntelliFactory.WebSharper.Html.Client
-open IntelliFactory.WebSharper.JQuery
-open IntelliFactory.WebSharper.Highcharts
+open WebSharper
+open WebSharper.JavaScript
+open WebSharper.Html.Client
+open WebSharper.JQuery
+open WebSharper.Highcharts
 
 [<JavaScript>]
 module ChartControl =
@@ -24,7 +24,7 @@ module ChartControl =
                 ),
                 YAxis = YAxisCfg(
                     Title = YAxisTitleCfg(
-                        Text = "Temperature (°C)"        
+                        Text = "Temperature (°C)"
                     ),
                     PlotLines = [|
                         YAxisPlotLinesCfg(
@@ -35,7 +35,7 @@ module ChartControl =
                     |]
                 ),
                 Tooltip = TooltipCfg(
-                    ValueSuffix = "°C"    
+                    ValueSuffix = "°C"
                 ), 
                 Legend = LegendCfg(
                     Layout = "vertical",

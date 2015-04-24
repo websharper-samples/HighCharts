@@ -1,10 +1,10 @@
 ﻿namespace Site
 
-open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.JavaScript
-open IntelliFactory.WebSharper.Html.Client
-open IntelliFactory.WebSharper.JQuery
-open IntelliFactory.WebSharper.Highstock
+open WebSharper
+open WebSharper.JavaScript
+open WebSharper.Html.Client
+open WebSharper.JQuery
+open WebSharper.Highstock
 
 [<JavaScript>]
 [<Require(typeof<Resources.Highstock>)>]

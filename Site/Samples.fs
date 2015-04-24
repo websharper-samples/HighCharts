@@ -1,9 +1,9 @@
 namespace Site
 
-open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.JavaScript
-open IntelliFactory.WebSharper.JQuery
-open IntelliFactory.WebSharper.Html.Client
+open WebSharper
+open WebSharper.JavaScript
+open WebSharper.JQuery
+open WebSharper.Html.Client
 
 /// Support code for the sample catalog.
 [<JavaScript>]

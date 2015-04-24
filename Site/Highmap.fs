@@ -1,10 +1,10 @@
 ﻿namespace Site
 
-open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.Html.Client
-open IntelliFactory.WebSharper.JavaScript
-open IntelliFactory.WebSharper.JQuery
-open IntelliFactory.WebSharper.Highmaps
+open WebSharper
+open WebSharper.Html.Client
+open WebSharper.JavaScript
+open WebSharper.JQuery
+open WebSharper.Highmaps
 
 [<Require(typeof<Resources.MapModuleForStock>)>]
 type EuropeMap() =
@@ -29,19 +29,19 @@ module MapControl =
                 PlotOptions = PlotOptionsCfg(
                     Map = PlotOptionsMapCfg(
                         AllAreas = false,
-                        JoinBy = [|"iso-a2"; "code"|],
+                        JoinBy = Choice2Of2 [|"iso-a2"; "code"|],
                         DataLabels = PlotOptionsMapDataLabelsCfg(
                             Enabled = true,
                             Color = "white",
                             Formatter = 
-                                (Func<_,_>(fun self -> 
+                                (FuncWithThis(fun self -> 
                                     let a = self?point?properties
                                     if As a then
                                         if 5 > a?labelrank then
                                             a?``iso-a2``
                                         else null
                                     else null)
-                                ).ToEcma(),
+                                ),
                             Format = null,
                             Style = New [ "fontWeight" => "bold" ]
                         ),
