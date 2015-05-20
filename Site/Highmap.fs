@@ -34,7 +34,7 @@ module MapControl =
                             Enabled = true,
                             Color = "white",
                             Formatter = 
-                                (FuncWithThis(fun self -> 
+                                (FuncWithThis(fun self () -> 
                                     let a = self?point?properties
                                     if As a then
                                         if 5 > a?labelrank then
@@ -60,7 +60,8 @@ module MapControl =
                     SeriesCfg(
                         Name = "UTC +1",
                         MapData = map,
-                        Data = ([|"NO"; "SE"; "DK"; "DE"; "NL"; "BE"; "LU"; "ES"; "FR"; "PL"; "CZ"; "AT"; "CH"; "LI"; "SK"; "HU"; "SI"; "IT"; "SM"; "HR"; "BA"; "YF"; "ME"; "AL"; "MK"|]
+                        Data = ([|"NO"; "SE"; "DK"; "DE"; "NL"; "BE"; "LU"; "ES"; "FR"; "PL"; "CZ"; "AT";
+                                     "CH"; "LI"; "SK"; "HU"; "SI"; "IT"; "SM"; "HR"; "BA"; "YF"; "ME"; "AL"; "MK"|]
                                 |> Array.map (fun e -> New [ "code" => e ]))
                     )
                     SeriesCfg(
