@@ -1,7 +1,6 @@
 ﻿namespace Site
 
 open WebSharper
-open WebSharper.Html.Client
 open WebSharper.JavaScript
 open WebSharper.JQuery
 open WebSharper.Highmaps

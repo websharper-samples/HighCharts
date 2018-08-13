@@ -2,7 +2,6 @@
 
 open WebSharper
 open WebSharper.JavaScript
-open WebSharper.Html.Client
 open WebSharper.JQuery
 open WebSharper.Highcharts
 

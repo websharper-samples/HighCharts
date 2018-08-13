@@ -3,7 +3,9 @@ namespace Site
 open WebSharper
 open WebSharper.JavaScript
 open WebSharper.JQuery
-open WebSharper.Html.Client
+open WebSharper.UI
+open WebSharper.UI.Html
+open WebSharper.UI.Client
 
 /// Support code for the sample catalog.
 [<JavaScript>]
@@ -76,19 +78,19 @@ module Samples =
             Clear sSide
             s.Render(sMain)
             let url = "http://github.com/intellifactory/websharper.highcharts/blob/master/Site/" + s.FileName
-            let side =
-                Div [
-                    Div []
-                    |>! OnAfterRender (fun self ->
+            Doc.Concat [
+                div [
+                    on.afterRender (fun self ->
                         match JS.Document.GetElementById(s.Id) with
                         | null -> ()
                         | el ->
                             let copy = el.CloneNode(true)
                             copy.Attributes.RemoveNamedItem("id") |> ignore
-                            self.Append(copy))
-                    A [Attr.Class "btn btn-primary btn-lg"; HRef url] -< [Text "Source"]
-                ]
-            side.AppendTo("sample-side")
+                            self.AppendChild(copy) |> ignore)
+                ] []
+                a [attr.``class`` "btn btn-primary btn-lg"; attr.href url] [text "Source"]
+            ]
+            |> Doc.RunAppend sSide
 
     type Set =
         private
@@ -104,12 +106,14 @@ module Samples =
                     let j = JQuery.Of("#sample-navs ul").Children("li").RemoveClass("active")
                     JQuery.Of(dom).AddClass("active").Ignore
                     s.Show()
-                let rec navs =
-                    UL [Attr.Class "nav nav-pills"] -< (
-                        samples
-                        |> List.mapi (fun i s ->
-                            LI [A [HRef "#"] -< [Text s.Title]]
-                            |>! OnAfterRender (fun self -> if i = 0 then select s self.Dom)
-                            |>! OnClick (fun self _ -> select s self.Dom))
+                ul [attr.``class`` "nav nav-pills"] [
+                    samples
+                    |> List.mapi (fun i s ->
+                        li [
+                            on.afterRender (fun self -> if i = 0 then select s self)
+                            on.click (fun self _ -> select s self)
+                        ] [a [attr.href "#"] [text s.Title]]
                     )
-                navs.AppendTo("sample-navs"))
+                    |> Doc.Concat
+                ]
+                |> Doc.RunAppendById "sample-navs")

@@ -1,7 +1,9 @@
 namespace Site
 
 open WebSharper
-open WebSharper.Html.Client
+open WebSharper.UI
+open WebSharper.UI.Html
+open WebSharper.UI.Client
 
 [<JavaScript>]
 module Client =
@@ -16,5 +18,4 @@ module Client =
 
     [<SPAEntryPoint>]
     let Main() = 
-        Div [] |> (fun e -> StockControl.Main e.Dom)
         All.Show()
