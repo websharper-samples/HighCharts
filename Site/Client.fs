@@ -14,6 +14,7 @@ module Client =
             !+ StockControl.Sample
         ]
 
-    let Main = 
+    [<SPAEntryPoint>]
+    let Main() = 
         Div [] |> (fun e -> StockControl.Main e.Dom)
         All.Show()

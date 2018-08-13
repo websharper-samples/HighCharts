@@ -19,21 +19,25 @@ module ChartControl =
                     Text = "Source: WorldClimate.com",
                     X = -20.
                 ),        
-                XAxis = XAxisCfg(
-                    Categories = [| "Jan"; "Feb"; "Mar"; "Apr"; "May"; "Jun"; "Jul"; "Aug"; "Sep"; "Oct"; "Nov"; "Dec" |]
-                ),
-                YAxis = YAxisCfg(
-                    Title = YAxisTitleCfg(
-                        Text = "Temperature (°C)"
-                    ),
-                    PlotLines = [|
-                        YAxisPlotLinesCfg(
-                            Value = 0.,
-                            Width = 1.,
-                            Color = "#808080"
-                        )
-                    |]
-                ),
+                XAxis = [|
+                    XAxisCfg(
+                        Categories = [| "Jan"; "Feb"; "Mar"; "Apr"; "May"; "Jun"; "Jul"; "Aug"; "Sep"; "Oct"; "Nov"; "Dec" |]
+                    )
+                |],
+                YAxis = [|
+                    YAxisCfg(
+                        Title = YAxisTitleCfg(
+                            Text = "Temperature (°C)"
+                        ),
+                        PlotLines = [|
+                            YAxisPlotLinesCfg(
+                                Value = 0.,
+                                Width = 1.,
+                                Color = "#808080"
+                            )
+                        |]
+                    )
+                |],
                 Tooltip = TooltipCfg(
                     ValueSuffix = "°C"
                 ), 

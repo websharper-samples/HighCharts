@@ -3,3 +3,4 @@ packages/*
 Site/obj/*
 *.suo
 Site/Content/*
+.vs/
