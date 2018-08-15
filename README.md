@@ -1,4 +1,4 @@
-# websharper.highcharts [![Build status](https://ci.appveyor.com/api/projects/status/t42asynbcbi8620w)](https://ci.appveyor.com/project/Jand42/websharper-highcharts)
+# websharper.highcharts [![Build status](https://ci.appveyor.com/api/projects/status/3jlh0qdqh4uc4irj?svg=true)](https://ci.appveyor.com/project/IntelliFactory/websharper-highcharts-samples)
 
 [Samples][samp] for [WebSharper][ws] bindings for Highcharts.
 
